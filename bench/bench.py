@@ -15,7 +15,11 @@
 # limitations under the License.
 #
 
-import foo_ext
+try:
+    import foo_ext
+except:
+    from ctypes import *
+    foo_ext = cdll.LoadLibrary("../ctypes/liba.so")
 import time
 import argparse
 
